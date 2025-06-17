@@ -1,5 +1,7 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,12 +13,19 @@ const LoginPage: React.FC = () => {
 
     if (email && password) {
       localStorage.setItem("userEmail", email);
-      navigate("/");
+      toast.success("Login successful!", {
+        position: "top-center",
+        autoClose: 1000,
+        onClose: () => navigate(-1),
+      });
+    } else {
+      toast.error("Please fill in all fields.");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <ToastContainer />
       <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Sign in to your account

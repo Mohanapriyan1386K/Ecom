@@ -45,22 +45,33 @@ function Productdeatils() {
   }, [viewImage]);
 
   const handleAddToCart = () => {
-    if (product) {
-      const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const existingIndex = existingCart.findIndex(
-        (item: any) => item.id === product.id
-      );
-
-      if (existingIndex !== -1) {
-        existingCart[existingIndex].quantity += 1;
-      } else {
-        existingCart.push({ ...product, quantity: 1 });
+    const getemail=localStorage.getItem('userEmail')
+    if(getemail){
+      if (product) {
+        const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const existingIndex = existingCart.findIndex(
+          (item: any) => item.id === product.id
+        );
+  
+        if (existingIndex !== -1) {
+          existingCart[existingIndex].quantity += 1;
+        } else {
+          existingCart.push({ ...product, quantity: 1 });
+        }
+  
+        localStorage.setItem("cart", JSON.stringify(existingCart));
+        toast.success("Product added to cart!",{
+        autoClose: 1500,
+      });
       }
-
-      localStorage.setItem("cart", JSON.stringify(existingCart));
-      toast.success("Product added to cart!");
+    }else{
+      toast.error("Please Login Frist",{
+        position: "top-center",
+        autoClose:1500,
+        onClose: () => Navigate("/Login"),
+      })
     }
-  };
+    }
 
   if (loading) {
     return (
