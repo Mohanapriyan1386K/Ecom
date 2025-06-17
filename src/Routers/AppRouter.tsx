@@ -1,6 +1,6 @@
 import React from "react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import MainLayout from "../../../Project2/src/Layout/MainLayout";
+import MainLayout from "../Layout/MainLayout";
 import Home from "../Screen/Home";
 import Blog from "../Screen/Blog";
 import AddProduct from "../Screen/ProductForm";

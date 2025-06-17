@@ -20,7 +20,6 @@ function Productdeatils() {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [viewImage, setVIewImage] = useState<number>(0);
-  const [animate, setAnimate] = useState<boolean>(false);
 
   const Navigtesback = () => {
     Navigate(-1);
@@ -41,8 +40,7 @@ function Productdeatils() {
   }, [id]);
 
   useEffect(() => {
-    setAnimate(true);
-    const timeout = setTimeout(() => setAnimate(false), 500);
+    const timeout = setTimeout(() =>500);
     return () => clearTimeout(timeout);
   }, [viewImage]);
 
