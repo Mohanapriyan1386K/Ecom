@@ -11,7 +11,7 @@ type Page = {
 const Pages: Page[] = [
   { name: "HOME", Link: "/" },
   { name: "ADDPRODUCT", Link: "/Addproduct" },
-  { name: "Login", Link: "/Blog" },
+  { name: "LOGIN", Link: "/Login" },
   { name: <CartIcon />, Link: "/cart" },
 ];
 
