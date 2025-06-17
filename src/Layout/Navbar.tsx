@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, type JSX, type JSXElementConstructor } from "react";
+import { useState, type JSX,} from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import CartIcon from "../components/CartIcon";
 
