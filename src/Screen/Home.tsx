@@ -55,7 +55,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="mt-16 max-w-[1400px] mx-auto px-4 py-6 bg-gray-100 min-h-screen">
+    <div className="mt-16 max-w-[1500px] mx-auto px-4 py-6 bg-gray-100 min-h-screen">
       <ToastContainer
         position="top-right"
         autoClose={2000}
