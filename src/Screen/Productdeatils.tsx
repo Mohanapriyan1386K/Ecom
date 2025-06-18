@@ -61,13 +61,13 @@ function Productdeatils() {
 
         localStorage.setItem("cart", JSON.stringify(existingCart));
         toast.success("Product added to cart!", {
-          autoClose: 1500,
+          autoClose: 1000,
         });
       }
     } else {
-      toast.error("Please Login First", {
+      toast.info("Please Login First", {
         position: "top-center",
-        autoClose: 1500,
+        autoClose: 1000,
         onClose: () => Navigate("/Login"),
       });
     }
