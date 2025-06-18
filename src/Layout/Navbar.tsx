@@ -25,7 +25,7 @@ function Navbar() {
     { name: "HOME", Link: "/" },
     { name: "ADDPRODUCT", Link: "/Addproduct" },
     ...(!isLoggedIn ? [{ name: "LOGIN", Link: "/Login" }] : []),
-    { name: <CartIcon />, Link: "/cart" },
+    { name: <CartIcon/>, Link: "/cart" },
   ];
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -107,7 +107,7 @@ function Navbar() {
 
       {/* Mobile menu list */}
       {isMobileMenuOpen &&(
-        <ul className="md:hidden w-full bg-white px-4 py-3 rounded-b-xl shadow-lg animate-fade-down space-y-2 text-black transition-all duration-300 ease-in-out">
+        <ul className="md:hidden w-full bg-white px-4 py-3  shadow-lg animate-fade-down space-y-2 text-black transition-all duration-300 ease-in-out">
           {Pages.map((item, index) => (
             <li key={index}>
               <Link
