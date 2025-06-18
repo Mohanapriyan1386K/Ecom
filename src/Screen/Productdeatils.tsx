@@ -4,6 +4,7 @@ import { getallproduct } from "../Services/Productservice";
 import { ToastContainer, toast } from "react-toastify";
 import { FaHome } from "react-icons/fa";
 import { OrbitProgress } from "react-loading-indicators";
+import { motion } from "framer-motion"; // ✅ Import motion
 
 interface Product {
   id: number;
@@ -16,7 +17,6 @@ interface Product {
 function Productdeatils() {
   const Navigate = useNavigate();
   const { id } = useParams();
-
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [viewImage, setVIewImage] = useState<number>(0);
@@ -40,38 +40,38 @@ function Productdeatils() {
   }, [id]);
 
   useEffect(() => {
-    const timeout = setTimeout(() =>500);
+    const timeout = setTimeout(() => {}, 500);
     return () => clearTimeout(timeout);
   }, [viewImage]);
 
   const handleAddToCart = () => {
-    const getemail=localStorage.getItem('userEmail')
-    if(getemail){
+    const getemail = localStorage.getItem("userEmail");
+    if (getemail) {
       if (product) {
         const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
         const existingIndex = existingCart.findIndex(
           (item: any) => item.id === product.id
         );
-  
+
         if (existingIndex !== -1) {
           existingCart[existingIndex].quantity += 1;
         } else {
           existingCart.push({ ...product, quantity: 1 });
         }
-  
+
         localStorage.setItem("cart", JSON.stringify(existingCart));
-        toast.success("Product added to cart!",{
-        autoClose: 1500,
-      });
+        toast.success("Product added to cart!", {
+          autoClose: 1500,
+        });
       }
-    }else{
-      toast.error("Please Login Frist",{
+    } else {
+      toast.error("Please Login First", {
         position: "top-center",
-        autoClose:1500,
+        autoClose: 1500,
         onClose: () => Navigate("/Login"),
-      })
+      });
     }
-    }
+  };
 
   if (loading) {
     return (
@@ -100,13 +100,16 @@ function Productdeatils() {
       </div>
 
       <ToastContainer />
+
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left Side - Images */}
         <div className="flex flex-col-reverse md:flex-row gap-4">
           {/* Thumbnails */}
           <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible max-w-full md:max-w-none">
             {product.images.map((item, index) => (
-              <img
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 key={index}
                 src={item}
                 onClick={() => setVIewImage(index)}
@@ -119,19 +122,28 @@ function Productdeatils() {
           </div>
 
           {/* Main Image */}
-          <div className="w-full max-w-[400px]">
+          <motion.div
+            className="w-full max-w-[400px]"
+            key={viewImage}
+            initial={{ opacity: 0, scale: 0.80 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+          >
             <img
-              key={viewImage}
               src={product.images[viewImage]}
               alt={product.title}
-              className={`w-full object-cover shadow-2xl transition-all duration-500 
-              `}
+              className="w-full object-cover shadow-2xl rounded"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Side - Details */}
-        <div className="flex flex-col gap-4 max-w-xl">
+        <motion.div
+          className="flex flex-col gap-4 max-w-xl"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
             {product.title}
           </h2>
@@ -154,7 +166,7 @@ function Productdeatils() {
               BUY NOW
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

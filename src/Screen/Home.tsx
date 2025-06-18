@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getallproduct, deleteproduct } from "../Services/Productservice";
 import { OrbitProgress } from "react-loading-indicators";
 import { toast, ToastContainer } from "react-toastify";
+import { motion } from "framer-motion";
 import MegaMenu from "../components/MegaMenu";
 interface Product {
   id: number;
@@ -82,11 +83,15 @@ function Home() {
             </p>
           ) : (
             <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-              {product.map((item) => (
-                <div
+              {product.map((item, index) => (
+                <motion.div
                   key={item.id}
                   onClick={() => handlenav(item.id)}
                   className="bg-white p-3 rounded-lg shadow hover:shadow-xl transition duration-300 cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                  whileHover={{ scale: 1.03 }}
                 >
                   <img
                     src={item?.images[0] || item?.images[0]}
@@ -111,7 +116,7 @@ function Home() {
                       Delete
                     </button>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
