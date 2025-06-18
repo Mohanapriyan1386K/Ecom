@@ -54,7 +54,7 @@ const ProductForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-18 p-4 shadow-lg border rounded space-y-4">
+    <div className="max-w-md mx-auto mt-18 p-4 shadow-lg  rounded space-y-4">
       <h2 className="text-xl font-bold text-center">Add New Product</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -63,7 +63,7 @@ const ProductForm: React.FC = () => {
           value={formData.title}
           onChange={handleChange}
           placeholder="Title"
-          className="w-full border p-2 rounded"
+          className="w-full outline-none p-2  border-b-1"
           required
         />
         <input
@@ -72,7 +72,7 @@ const ProductForm: React.FC = () => {
           value={formData.price}
           onChange={handleChange}
           placeholder="Price"
-          className="w-full border p-2 rounded"
+          className="w-full outline-none p-2  border-b-1"
           required
         />
         <textarea
@@ -80,7 +80,7 @@ const ProductForm: React.FC = () => {
           value={formData.description}
           onChange={handleChange}
           placeholder="Description"
-          className="w-full border p-2 rounded"
+          className="w-full outline-none p-2  border-b-1"
           required
         />
         <input
@@ -89,7 +89,7 @@ const ProductForm: React.FC = () => {
           value={formData.categoryId}
           onChange={handleChange}
           placeholder="Category ID"
-          className="w-full border p-2 rounded"
+          className="w-full outline-none p-2  border-b-1"
           required
         />
         {formData.images.map((img, index) => (
@@ -100,7 +100,7 @@ const ProductForm: React.FC = () => {
             value={img}
             onChange={(e) => handleChange(e, index)}
             placeholder={`Image URL ${index + 1}`}
-            className="w-full border p-2 rounded"
+            className="w-full outline-none p-2  border-b-1"
           />
         ))}
         <button
