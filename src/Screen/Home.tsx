@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getallproduct, deleteproduct } from "../Services/Productservice";
-import { FaHome } from "react-icons/fa";
 import { OrbitProgress } from "react-loading-indicators";
 import { toast, ToastContainer } from "react-toastify";
-
+import MegaMenu from "../components/MegaMenu";
 interface Product {
   id: number;
   title: string;
@@ -17,11 +16,9 @@ function Home() {
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-
   const handlenav = (id: number) => {
     navigate(`productdeatils/${id}`);
   };
-
   useEffect(() => {
     const fetchDataWithDelay = async () => {
       setLoading(true);
@@ -65,11 +62,9 @@ function Home() {
         pauseOnHover
         draggable
       />
-
-      <p className="flex gap-2 text-xs font-semibold items-center text-gray-700">
-        <FaHome /> / <span>Products</span>
-      </p>
-
+      <div className="hidden  lg:block">
+        <MegaMenu />
+      </div>
       {loading ? (
         <div className="flex justify-center items-center h-[80vh]">
           <OrbitProgress

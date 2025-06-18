@@ -6,6 +6,7 @@ import AddProduct from "../Screen/ProductForm";
 import Productdeatils from "../Screen/Productdeatils";
 import Cart from "../Screen/Cart";
 import Login from "../Screen/Login";
+import NotFound from "../Screen/NotFound";
 
 // Define the router configuration
 const router = createHashRouter([
@@ -18,8 +19,10 @@ const router = createHashRouter([
       {path:'cart',element:<Cart/>},
       {path: 'Addproduct', element: <AddProduct /> },
       {path: 'Login', element: <Login/> },
+      { path: '*', element: <NotFound/> },
     ],
   },
+  
 ]);
 
 // Router component

@@ -4,6 +4,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import CartIcon from "../components/CartIcon";
 import { RxAvatar } from "react-icons/rx";
 import { Logout } from "../Services/Logout";
+import Searchbar from "../components/Searchbar";
+import Logo from "../assets/LOgo.jpg"
 
 
 type Page = {
@@ -47,10 +49,17 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-gray-800 text-white shadow-md fixed w-full z-10 top-0">
+    <nav className="bg-gray-800 text-white shadow-md fixed w-full z-50 top-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="font-bold">MyApp</div>
+          <div className="flex justify-center items-center gap-4">
+          <img src={Logo} alt="" className="w-10 h-10 rounded-full " />
+           <div>
+             <p className="text-[20px] font-serif  "  >Shopora</p>
+             <p className="text-[10px]">Everything You Need One Click Away</p>
+           </div>
+          </div>
+          <div><Searchbar/></div>
 
           {/* Desktop menu */}
           <ul className="hidden md:flex space-x-6 items-center">
