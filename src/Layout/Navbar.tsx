@@ -53,7 +53,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex justify-center items-center gap-4">
-          <img src={Logo} alt="" className="w-10 h-10 rounded-full " />
+          <img src={Logo} alt="" className=" w-8 h-8   sm:w-10 sm:h-10 rounded-full " />
            <div className="hidden md:block ">
              <p className="text-[20px] font-serif  "  >Shopora</p>
              <p className="text-[10px]">Everything You Need One Click Away</p>
@@ -99,7 +99,7 @@ function Navbar() {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
           </div>
         </div>
@@ -124,7 +124,7 @@ function Navbar() {
             onClick={Logout}
           >
             LOGOUT
-          </button>a
+          </button>
         </ul>
       )}
     </nav>
