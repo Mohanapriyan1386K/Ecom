@@ -32,7 +32,7 @@ function Searchbar() {
   return (
     <div className="relative">
       {/* Input and Icon */}
-      <div className="flex justify-center items-center gap-2.5 border py-[2px] px-[5px] bg-[#F3F4F6] rounded-sm">
+      <div className="flex justify-center items-center gap-2.5 border py-[3] sm:py-[2px] px-[5px] bg-[#F3F4F6] rounded-sm">
         <input
           type="text"
           value={query}
