@@ -37,7 +37,7 @@ function Searchbar() {
           type="text"
           value={query}
           onChange={handleInput}
-          className="sm:w-[200px] md:w-[300px] lg:w-[500px] outline-none text-black ml-2 bg-[#F3F4F6]"
+          className="sm:w-[150px] md:w-[300px] lg:w-[500px] outline-none text-black ml-2 bg-[#F3F4F6]"
           placeholder="Search products..."
         />
         <div className="text-black">|</div>

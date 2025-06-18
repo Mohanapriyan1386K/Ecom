@@ -54,7 +54,7 @@ function Navbar() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex justify-center items-center gap-4">
           <img src={Logo} alt="" className="w-10 h-10 rounded-full " />
-           <div>
+           <div className="hidden md:block ">
              <p className="text-[20px] font-serif  "  >Shopora</p>
              <p className="text-[10px]">Everything You Need One Click Away</p>
            </div>
