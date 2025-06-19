@@ -369,7 +369,7 @@ function MegaMenu() {
     <div className="bg-white shadow-md p-0 relative ">
       <div className="max-w-full mx-auto px-4 h-14 flex justify-between items-center lg:gap-6">
         {/* Desktop Menu */}
-        <div className="hidden lg:flex gap-6 h-14 items-center">
+        <div className="hidden lg:flex gap-3 h-14 items-center">
           {categories.map((cat) => (
             <div
               key={cat.title}
@@ -382,7 +382,7 @@ function MegaMenu() {
 
               {active === cat.title && (
                 <div className="absolute top-full mt-[-20px] left-0 w-full bg-white shadow-lg rounded z-20">
-                  <div className="grid grid-cols-4 gap-4 p-6">
+                  <div className="grid grid-cols-6 gap-2 p-6">
                     {cat.sections.map((section, i) => (
                       <div key={i}>
                         <p className="font-bold text-gray-700 mb-2 text-[15px] border-b pb-1 w-[200px]">
