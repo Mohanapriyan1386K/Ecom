@@ -366,14 +366,13 @@ function MegaMenu() {
   ];
 
   return (
-    <div className="bg-white shadow-md p-0">
-      <div className="max-w-7xl mx-auto px-4 h-14 flex justify-between items-center lg:gap-6">
+    <div className="bg-white shadow-md p-0 relative ">
+      <div className="max-w-full mx-auto px-4 h-14 flex justify-between items-center lg:gap-6">
         {/* Desktop Menu */}
         <div className="hidden lg:flex gap-6 h-14 items-center">
           {categories.map((cat) => (
             <div
               key={cat.title}
-              className="relative"
               onMouseEnter={() => setActive(cat.title)}
               onMouseLeave={() => setActive(null)}
             >
@@ -382,7 +381,7 @@ function MegaMenu() {
               </button>
 
               {active === cat.title && (
-                <div className="absolute top-full mt-0 left-0 w-[1000px] bg-white shadow-lg rounded z-20">
+                <div className="absolute top-full mt-[-20px] left-0 w-full bg-white shadow-lg rounded z-20">
                   <div className="grid grid-cols-4 gap-4 p-6">
                     {cat.sections.map((section, i) => (
                       <div key={i}>
